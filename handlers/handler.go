@@ -20,7 +20,7 @@ func GetFullUrl(w http.ResponseWriter, r *http.Request) {
 	message, err := services.GetUrlByCode(code)
 
 	if err != nil {
-		w.WriteHeader(http.StatusNotFound) // 404 for missing URL
+		w.WriteHeader(http.StatusNotFound)
 		json.NewEncoder(w).Encode(map[string]string{"error": err.Error()})
 		return
 	}
